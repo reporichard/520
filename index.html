@@ -1,0 +1,570 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>致我的寶寶</title>
+
+    <link type="text/css" rel="stylesheet" href="./index_files/default.css">
+    <script type="text/javascript" src="./index_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./index_files/jscex.min.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-parser.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-jit.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-async.min.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="./index_files/functions.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./index_files/love.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./config.js"></script>
+    <style type="text/css">
+        <!--
+        .STYLE1 {
+            color: #666666
+        }
+
+        -->
+    </style>
+</head>
+<body>
+<div id="rotateWarning">
+
+    <div class="rotateBox">
+
+        <div class="phoneIcon">📱</div>
+
+        <div class="rotateText">
+            Please rotate your phone
+            <br>
+            to landscape mode ♡
+        </div>
+
+    </div>
+
+</div>
+<img src="https://ajlovechina.github.io/loveBalloon/static/music.png" style="position: fixed;z-index: 10001;top:10px;right:10px;" onclick="let m = document.querySelector('.song-audio-autoplay'); if (m.paused ) {m.play(); this.className = 'rotateImages'} else {m.pause(); this.className = ''}">
+<audio class="song-audio-autoplay" controls loop style="display: none;visibility: hidden">
+    <source src="./index_files/music.mp3" type="audio/mp3"/>
+</audio>
+<style type="text/css">
+    .rotateImages{
+        -webkit-animation:myRotate 10s linear infinite;
+        animation:myRotate 10s linear infinite;
+    }
+    @-webkit-keyframes myRotate{
+        0%{ -webkit-transform: rotate(0deg);}
+        50%{ -webkit-transform: rotate(180deg);}
+        100%{ -webkit-transform: rotate(360deg);}
+    }
+    @keyframes myRotate{
+        0%{ -webkit-transform: rotate(0deg);}
+        50%{ -webkit-transform: rotate(180deg);}
+        100%{ -webkit-transform: rotate(360deg);}
+    }
+</style>
+
+<div id="main">
+    <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a
+            href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
+            href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。
+    </div>
+    <div id="wrap">
+        <div id="text">
+            <div id="code">
+            </div>
+        </div>
+      
+        <canvas id="canvas"></canvas>
+        <div id="loveText"></div>
+        <button id="letterButton">✉</button>
+  <div id="loveWorld"></div>
+<div id="letterModal">
+  
+
+    <div id="letterBox">
+<button id="closeLetter">Close</button>
+        <div id="letterContent"></div>
+    </div>
+
+</div>
+
+<div class="couple">
+
+    <div class="person"></div>
+    <div class="person"></div>
+
+</div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $('#code').html(config.lines.map(item => {
+        return `<span class="say">${item}</span><br>
+						<span class="say"> </span><br>`
+    }).reduce((a, b) => {
+        return a + b;
+    }))
+    $("#clock-box-inside-text").html(`${config.names[0]}<span class="STYLE1">与</span> ${config.names[1]}<span class="STYLE1">已经相恋了</span>`)
+</script>
+
+<script>
+    (function () {
+        var canvas = $('#canvas');
+
+        if (!canvas[0].getContext) {
+            $("#error").show();
+            return false;
+        }
+
+        var width = canvas.width();
+        var height = canvas.height();
+        var offsetX = width / 2 - 300;
+var offsetY = height / 2 - 50;
+var scale = 0.55;
+        canvas.attr("width", width);
+        canvas.attr("height", height);
+
+        var opts = {
+            seed: {
+                x: width / 2 - 20,
+                color: "rgb(190, 26, 37)",
+                scale: 2
+            },
+           branch: [
+    [535 * scale + offsetX,
+     680 * scale + offsetY,
+
+     570 * scale + offsetX,
+     250 * scale + offsetY,
+
+     500 * scale + offsetX,
+     200 * scale + offsetY,
+
+     30, 100, [
+
+        [540 * scale + offsetX,
+         500 * scale + offsetY,
+
+         455 * scale + offsetX,
+         417 * scale + offsetY,
+
+         340 * scale + offsetX,
+         400 * scale + offsetY,
+
+         13, 100, [
+
+            [450 * scale + offsetX,
+             435 * scale + offsetY,
+
+             434 * scale + offsetX,
+             430 * scale + offsetY,
+
+             394 * scale + offsetX,
+             395 * scale + offsetY,
+
+             2, 40]
+
+        ]],
+
+        [550 * scale + offsetX,
+         445 * scale + offsetY,
+
+         600 * scale + offsetX,
+         356 * scale + offsetY,
+
+         680 * scale + offsetX,
+         345 * scale + offsetY,
+
+         12, 100, [
+
+            [578 * scale + offsetX,
+             400 * scale + offsetY,
+
+             648 * scale + offsetX,
+             409 * scale + offsetY,
+
+             661 * scale + offsetX,
+             426 * scale + offsetY,
+
+             3, 80]
+
+        ]],
+
+        [539 * scale + offsetX,
+         281 * scale + offsetY,
+
+         537 * scale + offsetX,
+         248 * scale + offsetY,
+
+         534 * scale + offsetX,
+         217 * scale + offsetY,
+
+         3, 40],
+
+        [546 * scale + offsetX,
+         397 * scale + offsetY,
+
+         413 * scale + offsetX,
+         247 * scale + offsetY,
+
+         328 * scale + offsetX,
+         244 * scale + offsetY,
+
+         9, 80, [
+
+            [427 * scale + offsetX,
+             286 * scale + offsetY,
+
+             383 * scale + offsetX,
+             253 * scale + offsetY,
+
+             371 * scale + offsetX,
+             205 * scale + offsetY,
+
+             2, 40],
+
+            [498 * scale + offsetX,
+             345 * scale + offsetY,
+
+             435 * scale + offsetX,
+             315 * scale + offsetY,
+
+             395 * scale + offsetX,
+             330 * scale + offsetY,
+
+             4, 60]
+
+        ]],
+
+        [546 * scale + offsetX,
+         357 * scale + offsetY,
+
+         608 * scale + offsetX,
+         252 * scale + offsetY,
+
+         678 * scale + offsetX,
+         221 * scale + offsetY,
+
+         6, 100, [
+
+            [590 * scale + offsetX,
+             293 * scale + offsetY,
+
+             646 * scale + offsetX,
+             277 * scale + offsetY,
+
+             648 * scale + offsetX,
+             271 * scale + offsetY,
+
+             2, 80]
+
+        ]]
+
+    ]]
+],
+            bloom: {
+bloom: {
+    num: 20,
+    width: 260,
+    height: 220,
+},
+},
+            footer: {
+                width: 1200,
+                height: 5,
+                speed: 10,
+            }
+        }
+
+        var tree = new Tree(canvas[0], width, height, opts);
+        var seed = tree.seed;
+        var foot = tree.footer;
+        var hold = 1;
+
+        canvas.click(function (e) {
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            if (seed.hover(x, y)) {
+                hold = 0;
+                canvas.unbind("click");
+                canvas.unbind("mousemove");
+                canvas.removeClass('hand');
+            }
+        }).mousemove(function (e) {
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            canvas.toggleClass('hand', seed.hover(x, y));
+        });
+
+        var seedAnimate = eval(Jscex.compile("async", function () {
+            seed.draw();
+            while (hold) {
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canScale()) {
+                seed.scale(0.95);
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canMove()) {
+                seed.move(0, 2);
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+        }));
+
+        var growAnimate = eval(Jscex.compile("async", function () {
+            do {
+                tree.grow();
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canGrow());
+        }));
+
+        var flowAnimate = eval(Jscex.compile("async", function () {
+            do {
+                tree.flower(2);
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canFlower());
+        }));
+
+        
+
+
+        var textAnimate = eval(Jscex.compile("async", function () {
+            var together = new Date(config.date);
+
+            $("#code").show().typewriter();
+            $("#clock-box").fadeIn(500);
+            while (true) {
+                timeElapse(together);
+                $await(Jscex.Async.sleep(1000));
+            }
+        }));
+
+        var runAsync = eval(Jscex.compile("async", function () {
+            $await(seedAnimate());
+            $await(growAnimate());
+            $await(flowAnimate());
+         
+// =====================
+    // LOVE TEXT ANIMATION
+    // =====================
+
+    var loveText = $("#loveText");
+
+function showLoveText(text, duration) {
+
+    loveText.html(text);
+
+    loveText.stop(true);
+
+    loveText.css("opacity", 0);
+
+    loveText.animate({opacity:1}, 1500);
+
+    setTimeout(function(){
+
+        loveText.animate({opacity:0}, 1500);
+
+    }, duration);
+}
+showLoveText("寶寶~", 2000);
+
+$await(Jscex.Async.sleep(5000));
+
+showLoveText("我很喜歡妳~", 2000);
+
+$await(Jscex.Async.sleep(5000));
+
+showLoveText("我很愛妳~", 2000);
+
+$await(Jscex.Async.sleep(5000));
+
+$("#loveText").animate({
+    opacity:0
+},1500);
+
+$await(Jscex.Async.sleep(1800));
+
+$("#letterButton").animate({
+    opacity:1
+},2000);
+          
+        }));
+$("#letterButton").click(async function(){
+
+    $("#letterModal").addClass("show");
+
+    await typeLetterText(letterMessage);
+
+});
+
+$("#letterModal").click(function(e){
+
+    if(e.target.id === "letterModal"){
+
+        $("#letterModal").removeClass("show");
+
+    }
+
+});
+const letterMessage = `520快樂呀寶寶～
+雖然我們認識的時間還不算很長，而且今天我們的關係也才剛剛第14天而已，可是妳真的已經慢慢變成我每天最期待的人了。每次看到妳的訊息，我都會不自覺地開心起來，心跳也會偷偷變快，嘻嘻。謝謝妳願意出現在我的世界裡，也謝謝妳讓我感受到被在乎、被陪伴的感覺。
+
+雖然現在的我們還在慢慢認識彼此，但我真的很珍惜和妳在一起的每一天。
+我希望未來不只是第14天而已，而是還有第140天、第540天、第1040天、第2040天、甚至第4040天……還有更多更多的日子。
+
+因為我真的想一直陪在妳身邊，慢慢地、久久地喜歡著妳。
+520不只是今天而已，因為我每天都在越來越愛妳呀♡`;
+
+async function typeLetterText(text){
+
+    const target =
+    document.getElementById("letterContent");
+
+    target.innerHTML = "";
+
+    let currentText = "";
+
+    for(let i = 0; i < text.length; i++){
+
+        const char = text[i];
+
+        // ENTER
+        if(char === "\n"){
+
+            currentText += "<br><br>";
+
+            target.innerHTML = currentText;
+
+            await sleep(1200);
+
+            continue;
+        }
+
+        currentText += char;
+
+        target.innerHTML = currentText;
+
+        let delay = 90;
+
+        // koma
+        if("，、".includes(char)){
+            delay = 400;
+        }
+
+        // titik
+        if("。！？".includes(char)){
+            delay = 1000;
+        }
+
+        // titik panjang
+        if("～…".includes(char)){
+            delay = 700;
+        }
+
+        await sleep(delay);
+    }
+}
+
+function sleep(ms){
+    return new Promise(r => setTimeout(r, ms));
+}
+const lovePhrases = [
+    "520快樂",
+    "我愛你",
+    "I love you",
+    "和我在一起吧",
+    "遇到你 超开心",
+    "寶寶",
+    "♡",
+    "想一直陪著妳",
+    "喜歡你",
+    "Love you"
+];
+
+function createFloatingLove(){
+
+    const el = document.createElement("div");
+
+    el.className = "floatingLove";
+
+    el.innerHTML =
+    lovePhrases[
+        Math.floor(Math.random() * lovePhrases.length)
+    ];
+
+    el.style.left =
+    Math.random() * 100 + "vw";
+
+    el.style.fontSize =
+    (18 + Math.random() * 42) + "px";
+
+    el.style.animationDuration =
+    (8 + Math.random() * 8) + "s";
+
+    el.style.opacity =
+    0.3 + Math.random() * 0.7;
+
+    document.getElementById("loveWorld")
+    .appendChild(el);
+
+    setTimeout(()=>{
+        el.remove();
+    },16000);
+}
+
+$("#closeLetter").click(async function(){
+
+    // fade out modal
+    $("#letterModal").removeClass("show");
+
+    // tunggu modal hilang dulu
+    await new Promise(r => setTimeout(r, 800));
+
+    // tampilkan floating world
+    $("#loveWorld").addClass("show");
+
+    // spawn floating text
+    setInterval(createFloatingLove, 300);
+});
+function checkOrientation(){
+
+    const isMobile =
+    /Android|iPhone|iPad|iPod/i
+    .test(navigator.userAgent);
+
+    if(!isMobile) return;
+
+    if(window.innerHeight > window.innerWidth){
+
+        document.getElementById("rotateWarning")
+        .style.display = "flex";
+
+        document.getElementById("main")
+        .style.display = "none";
+
+    }else{
+
+        document.getElementById("rotateWarning")
+        .style.display = "none";
+
+        document.getElementById("main")
+        .style.display = "block";
+    }
+}
+
+window.addEventListener(
+    "resize",
+    checkOrientation
+);
+
+checkOrientation();
+        runAsync().start();
+    })();
+    
+</script>
+
+
+</body>
+</html>
