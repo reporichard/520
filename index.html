@@ -118,18 +118,19 @@
 
         var width = canvas.width();
         var height = canvas.height();
-        var offsetX = isMobile
-? width / 2 - 220
-: width / 2 - 300;
-
-var offsetY = isMobile
-? height / 2 + 20
-: height / 2 - 50;
-var isMobile =
+        var isMobile =
 /Android|iPhone|iPad|iPod/i
 .test(navigator.userAgent);
 
-var scale = isMobile ? 0.42 : 0.55;
+var scale = isMobile ? 0.72 : 0.55;
+
+var offsetX = isMobile
+? width / 2 - 390
+: width / 2 - 300;
+
+var offsetY = isMobile
+? height / 2 + 180
+: height / 2 - 50;
         canvas.attr("width", width);
         canvas.attr("height", height);
 
@@ -538,38 +539,8 @@ $("#closeLetter").click(async function(){
     // spawn floating text
     setInterval(createFloatingLove, 300);
 });
-function checkOrientation(){
 
-    const isMobile =
-    /Android|iPhone|iPad|iPod/i
-    .test(navigator.userAgent);
 
-    if(!isMobile) return;
-
-    if(window.innerHeight > window.innerWidth){
-
-        document.getElementById("rotateWarning")
-        .style.display = "flex";
-
-        document.getElementById("main")
-        .style.display = "none";
-
-    }else{
-
-        document.getElementById("rotateWarning")
-        .style.display = "none";
-
-        document.getElementById("main")
-        .style.display = "block";
-    }
-}
-
-window.addEventListener(
-    "resize",
-    checkOrientation
-);
-
-checkOrientation();
         runAsync().start();
     })();
     
