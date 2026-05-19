@@ -505,34 +505,43 @@ body{
         text-align: center;
         left: 50%;
         transform: translateX(-50%);
-        top: 12%;
+        top: 8%;
     }
 
     #letterButton{
-        top: 20% !important;
+        top: 16% !important;
         transform: translateX(-50%) scale(0.8);
     }
 
     #letterBox{
-        width: 85%;
-        height: 70%;
+        width: 90%;
+        height: 72%;
         padding: 25px;
         border-radius: 30px;
     }
 
     #letterContent{
-        font-size: 22px;
+        font-size: 20px;
         line-height: 1.8;
     }
 
+    .couple{
+        bottom: 20px;
+        gap: 120px;
+    }
+
     .person{
-        transform: scale(0.7);
-        filter: blur(1px);
+        width: 55px;
+        height: 180px;
     }
 
-    #canvas{
-        transform: scale(0.82);
-        transform-origin: center center;
+    .person::before{
+        width: 62px;
+        height: 62px;
     }
 
+}
+#canvas{
+    width:100vw;
+    height:100vh;
 }
