@@ -496,3 +496,43 @@ body{
         filter:brightness(1);
     }
 }
+
+@media screen and (max-width: 768px){
+
+    #loveText{
+        font-size: 52px !important;
+        width: 90%;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 12%;
+    }
+
+    #letterButton{
+        top: 20% !important;
+        transform: translateX(-50%) scale(0.8);
+    }
+
+    #letterBox{
+        width: 85%;
+        height: 70%;
+        padding: 25px;
+        border-radius: 30px;
+    }
+
+    #letterContent{
+        font-size: 22px;
+        line-height: 1.8;
+    }
+
+    .person{
+        transform: scale(0.7);
+        filter: blur(1px);
+    }
+
+    #canvas{
+        transform: scale(0.82);
+        transform-origin: center center;
+    }
+
+}
